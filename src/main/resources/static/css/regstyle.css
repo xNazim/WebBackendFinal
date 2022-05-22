@@ -1,0 +1,228 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: 50px auto;
+    background: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 25px;
+    width: 740px;
+    height: 510px;
+}
+
+.box {
+    background-color: #FFFFFF;
+    width: 50%;
+    border-radius: 25px 0 0 25px;
+}
+
+.box2 {
+    display: flex;
+    position: relative;
+    background-image: url("images/reg.jpg");
+    width: 50%;
+    border-radius: 0 25px 25px 0;
+}
+
+.logo {
+    position: absolute;
+    padding-left: 20px;
+    padding-top: 40px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: #1465AF;
+}
+
+input {
+    width: 100%;
+    border-radius: 25px;
+    border: 1px solid #1465af;
+    padding: 12px 15px;
+    margin: 8px 0;
+
+}
+
+input:focus {
+    outline: none !important;
+    border: 1px solid blue;
+    box-shadow: 0 0 10px #719ece;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5%;
+    padding: 0 30px;
+}
+
+form label {
+    position: relative;
+    left: 15px;
+}
+
+button {
+    border-radius: 25px;
+    border: 1px solid #1465af;
+    background-color: #1465af;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    width: 100%;
+    margin-top: 8px;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #ffffff;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    padding-left: 10px;
+}
+
+a {
+    color: #1B47E2;
+    font-size: 18px;
+    text-decoration: none;
+
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        width: 520px;
+        height: 310px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    a {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 0;
+        margin-top: 5px;
+        line-height: 20px;
+    }
+
+    input {
+        padding: 6px 15px;
+        margin: 4px 0;
+        font-size: 10px;
+    }
+
+    input.checkbox {
+        width: 10px;
+        height: 10px;
+        margin-left: 2px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    button {
+        font-size: 8px;
+        padding: 8px 16px;
+        margin-top: 8px;
+    }
+
+    .box2 {
+        position: relative;
+        background-size: 100%;
+        width: 50%;
+        border-radius: 0 25px 25px 0;
+    }
+
+    .logo {
+        margin-left: 15px;
+        margin-top: 0%;
+        block-size: 90%;
+    }
+}
+
+
+@media only screen and (max-width: 540px) {
+    .container {
+        width: 360px;
+        height: 300px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    a {
+        font-size: 10px;
+    }
+
+    p {
+        font-size: 10px;
+        margin: 0;
+        margin-top: 5px;
+        line-height: 12px;
+    }
+
+    input {
+        padding: 6px 15px;
+        margin: 4px 0;
+        font-size: 10px;
+    }
+
+    input.checkbox {
+        width: 10px;
+        height: 10px;
+        margin-left: 2px;
+    }
+
+    label {
+        font-size: 10px;
+    }
+
+    button {
+        font-size: 8px;
+        padding: 8px 16px;
+        margin-top: 8px;
+    }
+
+    .box2 {
+        position: relative;
+        background-size: 140%;
+        width: 50%;
+        border-radius: 0 25px 25px 0;
+    }
+
+    .logo {
+        margin-left: -10px;
+        margin-right: 5px;
+        margin-top: 10%;
+        block-size: 80%;
+    }
+}
