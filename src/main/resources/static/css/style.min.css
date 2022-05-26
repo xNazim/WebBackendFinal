@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   outline: none;
   border: none;
   text-decoration: none;
@@ -24,8 +24,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #1465AF;
 }
 .header .logo {
@@ -35,26 +35,26 @@
 .header .logo img {
   width: 200px;
 }
-.header .navbar a {
+.header .navbars a {
   margin-left: 2rem;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: #fff;
 }
-.header .navbar a:last-child {
+.header .navbars a:last-child {
   cursor: pointer;
   border: 2px solid;
   border-radius: 50px;
   padding: 5px 20px 5px 20px;
   margin-left: 80px;
 }
-.header .navbar a:last-child:hover {
+.header .navbars a:last-child:hover {
   color: #1465AF;
   background-color: #fff;
 }
-.header .navbar a:hover {
+.header .navbars a:hover {
   color: #af1414;
 }
-.header .navbar #nav-close {
+.header .navbars #nav-close {
   font-size: 3rem;
   cursor: pointer;
   color: #000;
@@ -78,38 +78,38 @@
 .home {
   padding: 0;
 }
-.home .box {
+.home .boxs {
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-size: cover !important;
   background-position: center !important;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-start;
   padding: 2rem 9%;
 }
 .home.second {
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
-.home .content {
+.home .contents {
   width: 72rem;
 }
-.home .content h3 {
-  font-size: 2.1rem;
+.home .contents h3 {
+  font-size: 3rem;
   color: #fff;
   padding: 0.5rem 0;
   text-transform: uppercase;
   padding-bottom: 40px;
 }
-.home .content a {
-  font-size: 1.3rem;
+.home .contents a {
+  font-size: 2.2rem;
   color: #fff;
   cursor: pointer;
   border: 2px solid #fff;
@@ -117,7 +117,7 @@
   padding: 5px 20px 5px 20px;
   margin-left: 80px;
 }
-.home .content a:hover {
+.home .contents a:hover {
   color: #1465AF;
   background-color: #fff;
 }
@@ -140,17 +140,17 @@
   padding-top: 80px;
 }
 .services .box-container .box-wrapper .box h4 {
-  font-size: 1.4rem;
+  font-size: 2rem;
   color: #fff;
   padding-top: 10px;
 }
 .services .box-container .box-wrapper .box p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: rgb(255, 255, 255);
   padding-bottom: 20px;
 }
 .services .box-container a {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #1EA309;
   background-color: #fff;
   cursor: pointer;
@@ -172,7 +172,7 @@
 .carousels .carousel-card .cards {
   background: rgba(26, 218, 149, 0.0588235294);
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   cursor: pointer;
   -webkit-transition: 0.4s all ease-in-out;
   -o-transition: 0.4s all ease-in-out;
@@ -182,28 +182,34 @@
   background-color: #af1414;
 }
 .carousels .carousel-card .cards .carousel_card_title h5 {
-  font-size: 26px;
+  font-size: 18px;
   color: #fff;
   text-align: center;
   padding: 30px 0 30px 0;
+  margin-bottom: 0;
+  line-height: 1.6;
 }
 .carousels .carousel-card .cards .carousel_card_title2 {
   background-color: #0758A3;
 }
 .carousels .carousel-card .cards .carousel_card_title2 h5 {
-  font-size: 26px;
+  font-size: 18px;
   color: #fff;
   text-align: center;
   padding: 30px 10px 30px 10px;
+  margin-bottom: 0;
+  line-height: 1.6;
 }
 .carousels .carousel-card .cards .carousel_card_title3 {
   background-color: #1EA309;
 }
 .carousels .carousel-card .cards .carousel_card_title3 h5 {
-  font-size: 26px;
+  font-size: 18px;
   color: #fff;
   text-align: center;
   padding: 30px 15px 30px 15px;
+  margin-bottom: 0;
+  line-height: 1.6;
 }
 .carousels .carousel-card .cards .card_img {
   position: relative;
@@ -215,14 +221,14 @@
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .carousels .carousel-card .cards .card_title {
   text-align: center;
   padding: 15px 0 15px 0;
 }
 .carousels .carousel-card .cards .card_title a {
-  font-size: 20px;
+  font-size: 16px;
   text-transform: uppercase;
   color: #0758A3;
 }
@@ -234,7 +240,7 @@
   padding: 0 50px 0 50px;
 }
 .about-us .title {
-  font-size: 28px;
+  font-size: 30px;
   text-align: center;
 }
 .about-us .title h3 {
@@ -250,19 +256,19 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 20rem;
+  height: 21.5rem;
 }
 .about-us .wrapper-about .image img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .about-us .wrapper-about .content {
   padding: 0 20px 0 20px;
 }
 .about-us .wrapper-about .content p {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.8;
 }
 .about-us .wrapper-about .content i {
@@ -283,7 +289,7 @@
 }
 .donation .title h4 {
   color: #fff;
-  font-size: 22px;
+  font-size: 16px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -292,7 +298,7 @@
   padding-top: 10px;
 }
 .donation .title .don-btn a {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #fff;
   cursor: pointer;
   border: 1px solid #fff;
@@ -314,7 +320,7 @@
   padding: 25px 50px 0 50px;
 }
 .footer .box-container .box {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   padding: 1.5rem 0;
   color: #fff;
 }
@@ -327,7 +333,7 @@
 }
 .footer .box-container .box a {
   display: block;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #fff;
   padding: 0.5rem 0;
 }
@@ -355,8 +361,8 @@
     padding: 1.8rem;
   }
 
-  .home .content h3 {
-    font-size: 1.8rem;
+  .home .contents h3 {
+    font-size: 3rem;
   }
 
   .services .box-container .box-wrapper {
@@ -371,31 +377,31 @@
     gap: 1.5rem;
   }
   .carousels .carousel-card .cards .carousel_card_title h5 {
-    font-size: 18px;
-    padding-bottom: 57px;
+    font-size: 15px;
+    /* padding-bottom: 57px; */
   }
   .carousels .carousel-card .cards .carousel_card_title2 h5 {
-    font-size: 18px;
+    font-size: 15px;
   }
   .carousels .carousel-card .cards .carousel_card_title3 h5 {
-    font-size: 18px;
-    padding-bottom: 57px;
+    font-size: 15px;
+    /* padding-bottom: 57px; */
   }
   .carousels .carousel-card .cards .card_img {
     height: 15rem;
   }
   .carousels .carousel-card .cards .card_title a {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .donation .title h4 {
-    font-size: 16px;
+    font-size: 15px;
   }
   .donation .title .don-btn {
     padding-top: 0;
   }
   .donation .title .don-btn a {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .footer .box-container {
@@ -409,33 +415,34 @@
     padding: 0;
   }
   .footer .box-container .box a {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .footer .credit {
     font-size: 0.8rem;
   }
 }
 @media (max-width: 991px) {
-  .home .box {
+
+  .home .boxs {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     background-position: right !important;
   }
-  .home .box.second {
+  .home .boxs.second {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     background-position: left !important;
   }
-  .home .box .content {
+  .home .boxs .contents {
     text-align: center;
   }
-  .home .box .content a {
-    font-size: 1.5rem;
+  .home .boxs .contents a {
+    font-size: 1.2rem;
   }
-  .home .box .content h3 {
-    font-size: 2.2rem;
+  .home .boxs .contents h3 {
+    font-size: 3rem;
   }
 
   .services .box-container .box-wrapper {
@@ -444,13 +451,13 @@
     gap: 1.5rem;
   }
   .services .box-container .box-wrapper .box h4 {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   .services .box-container .box-wrapper .box p {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
   .services .box-container .box-wrapper .box a {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   .carousels .carousel-card {
@@ -459,21 +466,39 @@
     gap: 1.5rem;
   }
   .carousels .carousel-card .cards .carousel_card_title h5 {
-    font-size: 14px;
-    padding-bottom: 50px;
+    font-size: 10px;
+    padding-bottom: 45px;
   }
   .carousels .carousel-card .cards .carousel_card_title2 h5 {
-    font-size: 14px;
+    font-size: 10px;
   }
   .carousels .carousel-card .cards .carousel_card_title3 h5 {
-    font-size: 14px;
+    font-size: 10px;
     padding-bottom: 30px;
   }
   .carousels .carousel-card .cards .card_img {
     height: 10rem;
   }
   .carousels .carousel-card .cards .card_title a {
-    font-size: 12px;
+    font-size: 8px;
+  }
+  .about-us .wrapper-about .content {
+    /* padding: 0;
+    padding-right: 20px; */
+    width: 280px;
+  }
+
+  .about-us .wrapper-about .content p{
+    font-size: 10px;
+  }
+  .donation .title h4 {
+    font-size: 10px;
+  }
+  .donation .title .don-btn {
+    padding-top: 0;
+  }
+  .donation .title .don-btn a {
+    font-size: .9rem;
   }
 
   .footer .box-container {
@@ -490,7 +515,7 @@
   .header #menu-btn {
     display: inline-block;
   }
-  .header .navbar {
+  .header .navbars {
     position: fixed;
     top: 0;
     left: -110%;
@@ -503,29 +528,29 @@
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-flow: column;
-            flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
-  .header .navbar.active {
+  .header .navbars.active {
     -webkit-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
-            box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
     left: 0;
   }
-  .header .navbar a {
+  .header .navbars a {
     margin: 1rem 0;
     font-size: 1.5rem;
     color: #000;
   }
-  .header .navbar a:last-child {
+  .header .navbars a:last-child {
     margin-left: 0;
   }
-  .header .navbar #nav-close {
+  .header .navbars #nav-close {
     display: block;
     position: absolute;
     top: 0.5rem;
@@ -533,11 +558,21 @@
   }
 }
 @media (max-width: 450px) {
-  .home .box .content h3 {
+  .home .boxs .contents h3 {
     font-size: 1.2rem !important;
   }
-  .home .box .content a {
+  .home .boxs .contents a {
     font-size: 1rem !important;
+  }
+  .services .box-container .box-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1.5rem;
+  }
+  .carousels .carousel-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1.5rem;
   }
 
   .about-us .title {
@@ -555,14 +590,15 @@
     height: 80%;
     width: 85%;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
   .about-us .wrapper-about .content {
     padding: 0;
-    width: 330px;
+    padding-right: 20px;
+    width: 250px;
   }
   .about-us .wrapper-about .content p {
-    font-size: 14px;
+    font-size: 10px;
   }
 
   .footer .box-container {
