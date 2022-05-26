@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.min.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
 <body>
     <header class="header">
-        <a href="#" class="logo"><img src="img/logo.png" alt="logo"></a>
+        <a href="#" class="logo"><img th:src="@{img/logo.png}" alt="logo"></a>
         <nav class="navbar">
             <div id="nav-close" class="fas fa-times"></div>
             <a href="#">Home</a>
@@ -67,7 +67,7 @@
                             COVID-19 vaccine?</h5>
                     </div>
                     <div class="card_img">  
-                        <img src="img/card1.png" alt="">
+                        <img th:src="@{img/card1.png}" alt="">
                     </div>
                     <div class="card_title">
                             <a href="" class="btn">Schedule a Vaccine Appointment</a>
@@ -79,7 +79,7 @@
                             diseases & treatments?</h5>
                     </div>
                     <div class="card_img">  
-                        <img src="img/card2.png" alt="">
+                        <img th:src="@{/img/card2.png}" alt="">
                     </div>
                     <div class="card_title">
                             <a href="" class="btn">Search Out Health Library</a>
@@ -91,7 +91,7 @@
                             to live healthier every day?</h5>
                     </div>
                     <div class="card_img">  
-                        <img src="img/card3.png" alt="">
+                        <img th:src="@{img/card3.png}" alt="">
                     </div>
                     <div class="card_title">
                             <a href="" class="btn">Explore Health Essentials</a>

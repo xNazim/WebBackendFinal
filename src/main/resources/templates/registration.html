@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/regstyle.css">
+    <link rel="stylesheet" th:href="@{/css/regstyle.css}">
+    <link rel="stylesheet" href="/static/css/regstyle.css">
     <title>Registration </title>
 </head>
 
@@ -27,13 +28,13 @@
                     <button>Sign up</button>
                     <p>
                         Already registered?
-                        <a class="sign-up" href=""> Log in</a>
+                        <a class="sign-up" href="/login"> Log in</a>
                     </p>
                 </form>
             </div>
         </div>
         <div class="box2">
-            <img class="logo" th:src="@{/images/logo.png}" alt="logo">
+            <img class="logo" th:src="@{/img/logo1.png}" alt="logo">
         </div>
     </div>
 </body>
