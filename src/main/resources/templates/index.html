@@ -14,11 +14,11 @@
         <a href="#" class="logo"><img src="img/logo.png" alt="logo"></a>
         <nav class="navbar">
             <div id="nav-close" class="fas fa-times"></div>
-            <a href="">Home</a>
-            <a href="">Service</a>
-            <a href="">About</a>
-            <a href="">Contact</a>
-            <a href="">Login</a>
+            <a href="#">Home</a>
+            <a href="#service">Service</a>
+            <a href="#about">About</a>
+            <a href="#footer">Contact</a>
+            <a href="#" th:href="@{/login}">Login</a>
         </nav>
         <div class="icons">
             <div id="menu-btn" class="fas fa-bars"></div>
@@ -27,7 +27,7 @@
     <section class="home" id="home">
         <div class="container">
             <div class="home-wrapper">
-                <div class="box" style="background: url(img/bg.jpg) no-repeat;">
+                <div class="box" style="background: url(/img/bg.jpg) no-repeat;">
                     <div class="content">
                         <h3>Everyday or life-changing care. <hr> 
                             We're here when you need us.</h3>
@@ -37,7 +37,7 @@
             </div>
         </div>
     </section>
-    <section class="services">
+    <section class="services" id="service">
         <div class="box-container">
             <div class="box-wrapper">
                 <div class="box">
@@ -142,7 +142,7 @@
             </div>
         </div>
     </section>
-    <section class="footer">
+    <section class="footer" id="footer">
         <div class="box-container">
             <div class="box">
                 <img src="img/logo.png" alt="logo">

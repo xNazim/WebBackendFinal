@@ -23,7 +23,7 @@
 .box2 {
     display: flex;
     position: relative;
-    background-image: url("images/reg.jpg");
+    background-image: url("/images/reg.jpg");
     width: 50%;
     border-radius: 0 25px 25px 0;
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="regstyle.css">
+    <link rel="stylesheet" href="css/regstyle.css">
     <title>Registration </title>
 </head>
 
@@ -14,7 +14,7 @@
         <div class="box">
             <h1>Registraion</h1>
             <div class="sign-in-container">
-                <form action="#">
+                <form th:action="@{/registration}">
                     <label for="uname"><b>First Name</b></label>
                     <input type="text" placeholder="Enter First Name" name="uname" required>
                     <label for="lname"><b>Last Name</b></label>
@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="box2">
-            <img class="logo" src="images/logo.png" alt="logo">
+            <img class="logo" th:src="@{/images/logo.png}" alt="logo">
         </div>
     </div>
 </body>
