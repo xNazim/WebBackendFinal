@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/spur.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="/js/chart-js-config.js"></script>
+    <title>IAU</title>
+</head>
+
+<body>
+    <div class="dash">
+        <div th:replace="fragments/nav :: nav"></div>
+        <div class="dash-app">
+            <header class="dash-toolbar">
+                <a href="#!" class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <h3 style="margin-left: 50px">Donor dashboard</h3>
+            </header>
+            <main class="dash-content">
+                <div class="container-fluid">
+                	<div class="card spur-card">
+                        <div class="card-header">
+                            <div class="spur-card-icon">
+                                <i class="fas fa-table"></i>
+                            </div>
+                            <div class="spur-card-title"> All Appointment </div>
+                        </div>
+                        <div class="card-body ">
+                            <table class="table table-hover table-in-card">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Full Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Time</th>
+                                        <th scope="col">Message</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:if="${appointments.empty}">
+							            <td colspan="2">No Appointment Available</td>
+							        </tr>
+							        <tr th:each="appointment : ${appointments}">
+							            <td><span th:text="${appointment.id}">id</span></td>
+							            <td><span th:text="${appointment.name}">name</span></td>
+							            <td><span th:text="${appointment.email}">email</span></td>
+                                        <td><span th:text="${appointment.date}">date</span></td>
+							            <td><span th:text="${appointment.time}">time</span></td>
+                                        <td><span th:text="${appointment.message}">message</span></td>
+							            <td><a href="/appointment/edit.html"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
+							            <td>
+							            	<form action="#" th:object="${appointment}" th:action="@{/appointment/delete}" th:method="delete">
+							            		<input type="hidden" id="appointment" name="appointment" th:value="${appointment.id}">
+							            		<button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
+							            	</form>
+							            </td>
+							        </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card spur-card">
+	                    <div class="card-header">
+	                        <div class="spur-card-icon">
+	                            <i class="fas fa-plus-square"></i>
+	                        </div>
+	                        <div class="spur-card-title"> Add new appointment </div>
+	                    </div>
+	                    <div class="card-body ">
+	                        <form action="#" th:object="${appointment}" th:action="@{/appointment/create}" method="post">
+	                            <div class="form-group row">
+	                                <label for="inputName" class="col-sm-2 col-form-label">Full Name</label>
+	                                <div class="col-sm-10">
+                                    	<input type="text" class="form-control" th:field="*{name}" placeholder="Type a name" required>
+                                    </div>
+	                            </div>
+	                            <div class="form-group row">
+	                                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+	                                <div class="col-sm-10">
+                                    	<input type="email" class="form-control" th:field="*{email}" placeholder="Type a email" required>
+                                    </div>
+	                            </div>
+                                <div class="form-group row">
+	                                <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+	                                <div class="col-sm-10">
+                                    	<input type="date" class="form-control" th:field="*{date}" placeholder="Type a date" required>
+                                    </div>
+	                            </div>
+                                <div class="form-group row">
+	                                <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
+	                                <div class="col-sm-10">
+                                    	<input type="time" class="form-control" th:field="*{time}" placeholder="Type a phone time" required>
+                                    </div>
+	                            </div>
+	                            <div class="form-group row">
+	                                <div class="col-sm-10">
+	                                    <button type="submit" class="btn btn-primary">Submit</button>
+	                           			<button type="reset" class="btn btn-primary">Reset</button>
+	                                </div>
+	                            </div>
+	                        </form>
+	                    </div>
+	                </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/js/spur.js"></script>
+</body>
+
+</html>
