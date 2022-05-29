@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/spur.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="/js/chart-js-config.js"></script>
+    <title>IAU</title>
+</head>
+
+<body>
+	<div class="dash-nav dash-nav-dark" th:fragment="nav">
+        <header>
+            <a href="#" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </a>
+            <a href="/" class="spur-logo">
+		    <img th:src="@{/img/logo.png}" alt="logo" style="width:150px">
+		</a>
+        </header>
+        <nav class="dash-nav-list">
+            <a href="/" class="dash-nav-item">
+                <i class="fas fa-home"></i> Home 
+            </a>
+            <a href="/admin/dashboard" class="dash-nav-item">
+                <i class="fa fa-user-cog "> </i> Admin
+            </a>
+            <a href="/profile/dashboard" class="dash-nav-item">
+                <i class="fa fa-address-card"></i> Profile 
+            </a>
+            <a href="/patient/dashboard" class="dash-nav-item">
+                <i class="fa fa-bed"></i> Patient
+            </a>
+            <a th:href="@{/templates/doctor/dashboard.html}" class="dash-nav-item">
+                <i class="fa fa-user-doctor"></i> Doctor
+            </a>
+            <a href="/appointment/dashboard" class="dash-nav-item">
+                <i class="fa fa-calendar-check"></i>Appointment
+            </a>
+            <a href="/donor/dashboard" class="dash-nav-item">
+                <i class="fa fa-hand-holding-medical"></i>Donor
+            </a>
+            <a href="/laboratory/dashboard" class="dash-nav-item">
+                <i class="fa fa-flask"></i> Laboratory
+            </a>   
+       
+      
+        </nav>
+    </div>
+</body>
+
+</html>
