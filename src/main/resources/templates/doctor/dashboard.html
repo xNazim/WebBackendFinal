@@ -74,31 +74,50 @@
 	                        <div class="spur-card-title"> Add new doctor </div>
 	                    </div>
 	                    <div class="card-body ">
-	                        <form action="#" th:object="${doctor}" th:action="@{/doctor/create}" method="post">
+	                        <form   th:action="@{/admin/dashboard/}" method="post">
 	                            <div class="form-group row">
 	                                <label for="inputName" class="col-sm-2 col-form-label">Name</label>
 	                                <div class="col-sm-10">
-                                    	<input type="text" class="form-control"  placeholder="Type a name" required>
+                                    	<input type="text" class="form-control" id="inputName" name="first_name"  placeholder="Type a name" required>
                                     </div>
 	                            </div>
 	                            <div class="form-group row">
 	                                <label for="inputLastname" class="col-sm-2 col-form-label">Lastname</label>
 	                                <div class="col-sm-10">
-                                    	<input type="text" class="form-control"  placeholder="Type a lastname" required>
+                                    	<input type="text" class="form-control" id="inputLastname" name="last_name"  placeholder="Type a lastname" required>
                                     </div>
 	                            </div>
                                 <div class="form-group row">
 	                                <label for="inputSpecialty" class="col-sm-2 col-form-label">Specialty</label>
 	                                <div class="col-sm-10">
-                                    	<input type="text" class="form-control"  placeholder="Type a specialty" required>
+                                    	<input type="text" class="form-control" id="inputSpecialty" name="specialty" placeholder="Type a specialty" required>
                                     </div>
 	                            </div>
                                 <div class="form-group row">
 	                                <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
 	                                <div class="col-sm-10">
-                                    	<input type="tel" class="form-control"  placeholder="Type a phone number" required>
+                                    	<input type="tel" class="form-control" id="inputPhone" name="phone" placeholder="Type a phone number" required>
                                     </div>
 	                            </div>
+                                <div class="form-group row">
+                                    <label for="inputRole" class="col-sm-2 col-form-label">Role</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputRole" name="role" placeholder="Type a role" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Phone</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Type a password" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputUsername" class="col-sm-2 col-form-label">Phone</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Type a username" required>
+                                    </div>
+                                </div>
+
 	                            <div class="form-group row">
 	                                <div class="col-sm-10">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>

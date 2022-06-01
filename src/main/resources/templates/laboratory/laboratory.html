@@ -52,9 +52,9 @@
 							            <td><span th:text="${laboratory.name}">name laboratory</span></td>
                                         <td><span th:text="${laboratory.address}">Address</span></td>
 							            <td><span th:text="${laboratory.phone}">Phone</span></td>
-							            <td><a href="/laboratory/edit.html"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
+							            <td><a href="/templates/laboratorylaboratory/edit.html"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
 							            <td>
-							            	<form action="#" th:object="${laboratory}" th:action="@{/laboratory/delete}" th:method="delete">
+							            	<form action="#" th:object="${laboratory}" th:action="@{/templates/laboratory/delete}" th:method="delete">
 							            		<input type="hidden" id="laboratory" name="laboratory" th:value="${laboratory.id}">
 							            		<button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
 							            	</form>

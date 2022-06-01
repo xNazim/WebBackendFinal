@@ -1,5 +1,6 @@
 package com.example.backendwebfinal.entity;
 
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -17,6 +18,9 @@ public class User {
     private String username;
     private String password;
     private boolean enabled;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Doctor doctor;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
