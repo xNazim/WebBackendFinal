@@ -1,13 +1,16 @@
 package com.example.backendwebfinal.controller;
 
-import com.example.backendwebfinal.entity.Doctor;
-import com.example.backendwebfinal.repository.DoctorRepository;
+import com.example.backendwebfinal.entity.*;
+import com.example.backendwebfinal.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/admin")
@@ -16,41 +19,87 @@ public class AdminController {
     @Autowired
     private DoctorRepository doctorRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private PatientRepository patientRepository;
+
+    @Autowired
+    private AppointmentRepository appointmentRepository;
+
+    @Autowired
+    private DonorRepository donorRepository;
+
+    @Autowired
+    private LaboratoryRepository laboratoryRepository;
+
     @GetMapping
     String adminView() {
         return  "admin/index";
     }
 
     @GetMapping("/doctor")
-    String adminDoctorView() {
-        return  "doctor/dashboard";
+    public String doctorIndex(Model model) {
+        model.addAttribute("doctor", new Doctor());
+        model.addAttribute("doctors", doctorRepository.findAll());
+        return "doctor/dashboard";
     }
 
     @GetMapping("/patient")
-    String adminPatientView() {
+    String adminPatientView(Model model) {
+        model.addAttribute("patient", new Patient());
+        model.addAttribute("patients", patientRepository.findAll());
+        model.addAttribute("doctors", doctorRepository.findAll());
+        model.addAttribute("appointments", appointmentRepository.findAll());
         return  "patient/patient";
     }
-
     @GetMapping("/appointment")
-    String adminAppointmentView() {
-        return  "appointment/appointment";
+    public String showAppointment(Model model) {
+        model.addAttribute("appointment", new Appointment());
+        model.addAttribute("appointments", appointmentRepository.findAll());
+        return "appointment/appointment";
     }
 
     @GetMapping("/donor")
-    String adminDonorView() {
-        return  "donor/donor";
+    public String showDonor(Model model) {
+        model.addAttribute("donor", new Donor());
+        model.addAttribute("donors", donorRepository.findAll());
+        model.addAttribute("laboratories", laboratoryRepository.findAll());
+        return "donor/donor";
     }
 
     @GetMapping("/laboratory")
-    String adminLaboratoryView() {
-        return  "laboratory/laboratory";
+    public String showLab(Model model) {
+        model.addAttribute("laboratory", new Laboratory());
+        model.addAttribute("laboratories", laboratoryRepository.findAll());
+        return "laboratory/laboratory";
     }
 
-    @PostMapping("/addDoctor")
+    @PostMapping("/doctor")
     public String createDoctor(@ModelAttribute Doctor doctor) {
         doctorRepository.save(doctor);
-        return "redirect:dashboard";
+        return "redirect:/admin/doctor";
     }
+
+    @PostMapping("/patient")
+    public String createPatient(@ModelAttribute Patient patient) {
+        patientRepository.save(patient);
+        return "redirect:/admin/patient";
+    }
+
+    @PostMapping("/appointment")
+    public String createAppointment(@ModelAttribute Appointment appointment) {
+        appointmentRepository.save(appointment);
+        return "redirect:/admin/appointment";
+    }
+
+    @PostMapping("/donor")
+    public String createDonor(@ModelAttribute Donor donor) {
+        donorRepository.save(donor);
+        return "redirect:/admin/donor";
+    }
+
 
 
 }

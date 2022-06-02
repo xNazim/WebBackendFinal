@@ -1,11 +1,12 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/spur.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     <script src="/js/chart-js-config.js"></script>
@@ -40,29 +41,31 @@
                                         <th scope="col">Lastname</th>
                                         <th scope="col">Specialty</th>
                                         <th scope="col">Phone</th>
+                                        <th scope="col">Address</th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
-<!--                                <tbody>-->
-<!--                                    <tr th:if="${doctors.empty}">-->
-<!--							            <td colspan="2">No Doctors Available</td>-->
-<!--							        </tr>-->
-<!--							        <tr th:each="doctor : ${doctors}">-->
-<!--							            <td><span th:text="${doctor.id}">id</span></td>-->
-<!--							            <td><span th:text="${doctor.name}">name</span></td>-->
-<!--							            <td><span th:text="${doctor.forename}">lastname</span></td>-->
-<!--                                        <td><span th:text="${doctor.forename}">Specialty</span></td>-->
-<!--							            <td><span th:text="${doctor.forename}">Phone</span></td>-->
-<!--							            <td><a href="/doctor/edit.html"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>-->
-<!--							            <td>-->
-<!--							            	<form action="#" th:object="${doctor}" th:action="@{/doctor/delete}" th:method="delete">-->
-<!--							            		<input type="hidden" id="doctor" name="teacher" th:value="${doctor.id}">-->
-<!--							            		<button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>-->
-<!--							            	</form>-->
-<!--							            </td>-->
-<!--							        </tr>-->
-<!--                                </tbody>-->
+                                <tbody>
+                                    <tr th:if="${doctors.empty}">
+							            <td colspan="2">No Doctors Available</td>
+							        </tr>
+							        <tr th:each="doctor : ${doctors}">
+							            <td><span th:text="${doctor.id}">id</span></td>
+							            <td><span th:text="${doctor.firstName}">name</span></td>
+							            <td><span th:text="${doctor.lastName}">lastname</span></td>
+                                        <td><span th:text="${doctor.specialty}">Specialty</span></td>
+                                        <td><span th:text="${doctor.address}">Address</span></td>
+							            <td><span th:text="${doctor.mobileNo}">Phone</span></td>
+							            <td><a href="/doctor/edit.html"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
+							            <td>
+							            	<form action="#" th:object="${doctor}" th:action="@{/admin/doctor}" th:method="delete">
+							            		<input type="hidden" id="doctor" name="teacher" th:value="${doctor.id}">
+							            		<button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
+							            	</form>
+							            </td>
+							        </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -74,49 +77,38 @@
 	                        <div class="spur-card-title"> Add new doctor </div>
 	                    </div>
 	                    <div class="card-body ">
-	                        <form   th:action="@{/admin/dashboard/}" method="post">
+	                        <form   th:action="@{/admin/doctor/}" th:object="${doctor}" method="post">
 	                            <div class="form-group row">
 	                                <label for="inputName" class="col-sm-2 col-form-label">Name</label>
 	                                <div class="col-sm-10">
-                                    	<input type="text" class="form-control" id="inputName" name="first_name"  placeholder="Type a name" required>
+                                    	<input type="text" class="form-control" id="inputName" th:field="*{firstName}" placeholder="Type a name" required>
                                     </div>
 	                            </div>
 	                            <div class="form-group row">
 	                                <label for="inputLastname" class="col-sm-2 col-form-label">Lastname</label>
 	                                <div class="col-sm-10">
-                                    	<input type="text" class="form-control" id="inputLastname" name="last_name"  placeholder="Type a lastname" required>
+                                    	<input type="text" class="form-control" id="inputLastname" th:field="*{lastName}" name="lastName" placeholder="Type a lastname" required>
                                     </div>
 	                            </div>
                                 <div class="form-group row">
 	                                <label for="inputSpecialty" class="col-sm-2 col-form-label">Specialty</label>
 	                                <div class="col-sm-10">
-                                    	<input type="text" class="form-control" id="inputSpecialty" name="specialty" placeholder="Type a specialty" required>
+                                    	<input type="text" class="form-control" id="inputSpecialty" th:field="*{specialty}" placeholder="Type a specialty" required>
                                     </div>
 	                            </div>
+
+                                <div class="form-group row">
+                                    <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputAddress" th:field="*{address}" placeholder="Type an address" required>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
 	                                <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
 	                                <div class="col-sm-10">
-                                    	<input type="tel" class="form-control" id="inputPhone" name="phone" placeholder="Type a phone number" required>
+                                    	<input type="tel" class="form-control" id="inputPhone" th:field="*{mobileNo}" placeholder="Type a phone number" required>
                                     </div>
 	                            </div>
-                                <div class="form-group row">
-                                    <label for="inputRole" class="col-sm-2 col-form-label">Role</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputRole" name="role" placeholder="Type a role" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Phone</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Type a password" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputUsername" class="col-sm-2 col-form-label">Phone</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Type a username" required>
-                                    </div>
-                                </div>
 
 	                            <div class="form-group row">
 	                                <div class="col-sm-10">
