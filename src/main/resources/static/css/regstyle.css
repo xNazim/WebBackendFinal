@@ -11,7 +11,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 25px;
     width: 740px;
-    height: 510px;
+    height: 550px;
 }
 
 .box {
@@ -24,13 +24,17 @@
     display: flex;
     position: relative;
     background-image: url("/img/reg.jpg");
-    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover ;
+    width: 60%;
     border-radius: 0 25px 25px 0;
 }
 
 .logo {
     position: absolute;
     padding-left: 20px;
+    margin-left: 20px;
+    margin-top: 40px;
     padding-top: 40px;
 }
 
@@ -111,10 +115,17 @@ a {
 
 }
 
+select {
+    width: 50%;
+    border: 1px solid #1465af;
+    padding: 6px 15px;
+    margin: 8px 0;
+    margin-left: 15px;
+}
 @media only screen and (max-width: 992px) {
     .container {
         width: 520px;
-        height: 310px;
+        height: 350px;
     }
 
     h1 {
@@ -156,15 +167,22 @@ a {
 
     .box2 {
         position: relative;
-        background-size: 100%;
         width: 50%;
         border-radius: 0 25px 25px 0;
     }
 
     .logo {
-        margin-left: 15px;
+        margin-left: 5px;
         margin-top: 0%;
         block-size: 90%;
+    }
+
+    select {
+        width: 50%;
+        border: 1px solid #1465af;
+        padding: 3px 15px;
+        margin: 8px 0;
+        margin-left: 15px;
     }
 }
 
@@ -172,7 +190,7 @@ a {
 @media only screen and (max-width: 540px) {
     .container {
         width: 360px;
-        height: 300px;
+        height: 325px;
     }
 
     h1 {
@@ -214,15 +232,22 @@ a {
 
     .box2 {
         position: relative;
-        background-size: 140%;
         width: 50%;
         border-radius: 0 25px 25px 0;
     }
 
     .logo {
-        margin-left: -10px;
+        margin-left: -20px;
         margin-right: 5px;
         margin-top: 10%;
         block-size: 80%;
+    }
+
+    select {
+        width: 50%;
+        border: 1px solid #1465af;
+        padding: 1px 5px;
+        margin: 8px 0;
+        margin-left: 15px;
     }
 }

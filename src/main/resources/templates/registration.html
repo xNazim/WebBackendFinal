@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{css/regstyle.css}">
+    <link rel="stylesheet" href="/static/css/regstyle.css">
     <title>Registration </title>
 </head>
 
@@ -14,16 +15,21 @@
         <div class="box">
             <h1>Registraion</h1>
             <div class="sign-in-container">
-                <form th:action="@{/registration}">
+                <form th:object="${user}" th:action="@{/registration}" method="post">
                     <label for="uname"><b>First Name</b></label>
-                    <input type="text" placeholder="Enter First Name" name="uname" required>
+                    <input type="text" id="uname" th:field="*{firstName}" placeholder="Enter First Name" name="uname" required>
                     <label for="lname"><b>Last Name</b></label>
-                    <input type="text" placeholder="Enter Last Name" name="lname" required>
+                    <input type="text" id="lname" th:field="*{lastName}" placeholder="Enter Last Name" name="lname" required>
                     <label for="email"><b>Email</b></label>
-                    <input type="email" placeholder="Enter email" name="email" required>
+                    <input type="email" id="email" th:field="*{username}" placeholder="Enter email" name="email" required>
                     <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
-
+                    <input type="password" id="password" th:field="*{password}" placeholder="Enter Password" name="password" required>
+                    <select th:field="*{roles}" id="doctor" onchange="onstatechange(this)"
+                            class="form-control">
+                        <option disabled selected value="">Role:</option>
+                        <option th:each="role : ${roles}" th:value="${role.id}"
+                                th:text="${role.name}"></option>
+                    </select>
                     <button>Sign up</button>
                     <p>
                         Already registered?
@@ -37,5 +43,6 @@
         </div>
     </div>
 </body>
+
 
 </html>

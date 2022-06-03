@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -22,9 +23,10 @@ public class User {
     private String username;
     private String password;
     private boolean enabled;
+//    private boolean enabled;
 
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -33,17 +35,25 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
 
+    public User() {
+    }
 
-    public void setRoles(Set<Role> roles) {
+    public User(String firstName, String lastName, String username, String password, Set<Role> roles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
         this.roles = roles;
     }
-    @Transient
+
+
+        @Transient
     public boolean hasRole(String roleName) {
         Iterator<Role> iterator = roles.iterator();
 
         while (iterator.hasNext()) {
-            Role role = iterator.next();
-            if (role.getName().equals(roleName)) {
+            Role roles = iterator.next();
+            if (roles.getName().equals(roleName)) {
                 return true;
             }
         }

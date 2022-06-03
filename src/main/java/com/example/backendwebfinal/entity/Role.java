@@ -1,10 +1,15 @@
 package com.example.backendwebfinal.entity;
 
-import lombok.Data;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Objects;
 
-@Data
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "roles")
 public class Role {
@@ -14,4 +19,10 @@ public class Role {
     private Integer id;
     private String name;
 
+    public Role() {
+    }
+
+    public Role(String name) {
+        this.name = name;
+    }
 }
