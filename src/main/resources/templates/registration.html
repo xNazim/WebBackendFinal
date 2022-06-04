@@ -24,12 +24,6 @@
                     <input type="email" id="email" th:field="*{username}" placeholder="Enter email" name="email" required>
                     <label for="password"><b>Password</b></label>
                     <input type="password" id="password" th:field="*{password}" placeholder="Enter Password" name="password" required>
-                    <select th:field="*{roles}" id="doctor" onchange="onstatechange(this)"
-                            class="form-control">
-                        <option disabled selected value="">Role:</option>
-                        <option th:each="role : ${roles}" th:value="${role.id}"
-                                th:text="${role.name}"></option>
-                    </select>
                     <button>Sign up</button>
                     <p>
                         Already registered?

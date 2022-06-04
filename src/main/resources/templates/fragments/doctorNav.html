@@ -14,7 +14,7 @@
 </head>
 
 <body>
-	<div class="dash-nav dash-nav-dark" th:fragment="nav">
+	<div class="dash-nav dash-nav-dark" style="background: #1465AF" th:fragment="nav1">
         <header>
             <a href="#" class="menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -24,25 +24,19 @@
 		</a>
         </header>
         <nav class="dash-nav-list">
-            <a href="/admin/dashboard" class="dash-nav-item">
-                <i class="fa fa-user-cog "> </i> Admin
-            </a>
-            <a href="/admin/dashboard" class="dash-nav-item">
+            <a href="/doctor/doctor" class="dash-nav-item">
                 <i class="fa fa-address-card"></i> Profile 
             </a>
-            <a href="/admin/patient" class="dash-nav-item">
+            <a href="/doctor/patient" class="dash-nav-item">
                 <i class="fa fa-bed"></i> Patient
             </a>
-            <a th:href="@{/templates/admin/doctorAdmin}" class="dash-nav-item">
-                <i class="fa fa-user-doctor"></i> Doctor
-            </a>
-            <a href="/admin/appointment" class="dash-nav-item">
+            <a href="/doctor/appointment" class="dash-nav-item">
                 <i class="fa fa-calendar-check"></i>Appointment
             </a>
-            <a href="/admin/donor" class="dash-nav-item">
+            <a href="/doctor/donor" class="dash-nav-item">
                 <i class="fa fa-hand-holding-medical"></i>Donor
             </a>
-            <a href="/admin/laboratory" class="dash-nav-item">
+            <a href="/doctor/laboratory" class="dash-nav-item">
                 <i class="fa fa-flask"></i> Laboratory
             </a>   
        

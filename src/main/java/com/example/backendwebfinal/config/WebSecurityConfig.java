@@ -1,6 +1,7 @@
 package com.example.backendwebfinal.config;
 
-import com.example.backendwebfinal.service.UserDetailsServiceImpl;
+import com.example.backendwebfinal.service.MyUserDetailsServiceImpl;
+import com.example.backendwebfinal.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.security.authentication.dao.*;
@@ -15,8 +16,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public UserDetailsService userDetailsService() {
-        return new UserDetailsServiceImpl();
+    public MyUserDetailsService userDetailsService() {
+        return new MyUserDetailsServiceImpl();
     }
 
     @Bean

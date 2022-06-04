@@ -43,7 +43,7 @@ public class AdminController {
     public String doctorIndex(Model model) {
         model.addAttribute("doctor", new Doctor());
         model.addAttribute("doctors", doctorRepository.findAll());
-        return "doctor/dashboard";
+        return "admin/doctor/dashboard";
     }
 
     @GetMapping("/patient")
@@ -52,13 +52,13 @@ public class AdminController {
         model.addAttribute("patients", patientRepository.findAll());
         model.addAttribute("doctors", doctorRepository.findAll());
         model.addAttribute("appointments", appointmentRepository.findAll());
-        return  "patient/patient";
+        return  "admin/patient/patient";
     }
     @GetMapping("/appointment")
     public String showAppointment(Model model) {
         model.addAttribute("appointment", new Appointment());
         model.addAttribute("appointments", appointmentRepository.findAll());
-        return "appointment/appointment";
+        return "admin/appointment/appointment";
     }
 
     @GetMapping("/donor")
@@ -66,14 +66,15 @@ public class AdminController {
         model.addAttribute("donor", new Donor());
         model.addAttribute("donors", donorRepository.findAll());
         model.addAttribute("laboratories", laboratoryRepository.findAll());
-        return "donor/donor";
+        return "admin/donor/donor";
     }
 
     @GetMapping("/laboratory")
     public String showLab(Model model) {
         model.addAttribute("laboratory", new Laboratory());
         model.addAttribute("laboratories", laboratoryRepository.findAll());
-        return "laboratory/laboratory";
+        model.addAttribute("users", userRepository.findAll());
+        return "admin/laboratory/laboratory";
     }
 
     @PostMapping("/doctor")
@@ -100,6 +101,11 @@ public class AdminController {
         return "redirect:/admin/donor";
     }
 
+    @PostMapping("/laboratory")
+    public String createLab(@ModelAttribute Laboratory laboratory) {
+        laboratoryRepository.save(laboratory);
 
+        return "redirect:/admin/laboratory";
+    }
 
 }

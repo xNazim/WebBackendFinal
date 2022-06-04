@@ -4,10 +4,7 @@ package com.example.backendwebfinal.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Entity
@@ -26,13 +23,13 @@ public class User {
 //    private boolean enabled;
 
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private Set<Role> roles = new HashSet<>();
+    private Set<Role> roles;
 
 
     public User() {
@@ -46,8 +43,16 @@ public class User {
         this.roles = roles;
     }
 
+    public User(String firstName, String lastName, String username, String password, boolean enabled) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
+    }
 
-        @Transient
+
+    @Transient
     public boolean hasRole(String roleName) {
         Iterator<Role> iterator = roles.iterator();
 

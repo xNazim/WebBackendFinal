@@ -16,13 +16,26 @@
 
 <body>
     <div class="dash">
-        <div th:replace="fragments/nav :: nav"></div>
+        <div th:replace="fragments/doctorNav :: nav1"></div>
         <div class="dash-app">
             <header class="dash-toolbar">
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
                 <h3 style="margin-left: 50px">Doctor dashboard</h3>
+                <div class="tools">
+                    <div class="dropdown tools-item">
+                        <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                            <form th:action="@{/logout}" method="post">
+                                <input class="dropdown-item" type="submit" value="Logout"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </header>
             <main class="dash-content">
                 <div class="container-fluid">
@@ -54,7 +67,7 @@
 							            <td><span th:text="${laboratory.labName}">name laboratory</span></td>
                                         <td><span th:text="${laboratory.address}">Address</span></td>
 							            <td><span th:text="${laboratory.phoneNo}">Phone</span></td>
-							            <td><a href="/edit/"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
+							            <td><a href="doctor/laboratory/edit"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
 							            <td>
 							            	<form action="#" th:object="${laboratory}" th:action="@{/admin/laboratory}" th:method="delete">
 							            		<input type="hidden" id="laboratory" name="laboratory" th:value="${laboratory.id}">
@@ -74,7 +87,7 @@
 	                        <div class="spur-card-title"> Add new laboratory </div>
 	                    </div>
 	                    <div class="card-body ">
-	                        <form action="#" th:object="${laboratory}" th:action="@{/teacher/create}" method="post">
+	                        <form action="#" th:object="${laboratory}" th:action="@{/doctor/laboratory}" method="post">
 	                            <div class="form-group row">
 	                                <label for="inputName" class="col-sm-2 col-form-label">Name Laboratory</label>
 	                                <div class="col-sm-10">
@@ -93,6 +106,17 @@
                                     	<input type="tel" class="form-control" id="inputPhone" th:field="*{phoneNo}" placeholder="Type a phone" required>
                                     </div>
 	                            </div>
+                                <div class="form-group row">
+                                    <label for="app" class="col-sm-2 col-form-label">Appointment Id</label>
+                                    <div class="col-sm-10">
+                                        <select th:field="*{user.id}" id="app" onchange="onstatechange(this)"
+                                                class="form-control">
+                                            <option disabled selected value="">Select User id</option>
+                                            <option th:each="user : ${users}" th:value="${user.id}"
+                                                    th:text="${user.firstName}"></option>
+                                        </select>
+                                    </div>
+                                </div>
 	                            <div class="form-group row">
 	                                <div class="col-sm-10">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>

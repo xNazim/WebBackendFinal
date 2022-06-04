@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +21,9 @@
         <a href="#service">Service</a>
         <a href="#about">About</a>
         <a href="#footer">Contact</a>
-        <a href="#" th:href="@{/login}">Login</a>
+        <a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a>
+        <a sec:authorize="isAnonymous()" th:href="@{/login}">Login</a>
+
     </nav>
     <div class="icons">
         <div id="menu-btn" class="fas fa-bars"></div>

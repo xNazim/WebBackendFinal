@@ -23,6 +23,19 @@
                     <i class="fas fa-bars"></i>
                 </a>
                 <h3 style="margin-left: 50px">Donor dashboard</h3>
+                <div class="tools">
+                    <div class="dropdown tools-item">
+                        <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                            <form th:action="@{/logout}" method="post">
+                                <input class="dropdown-item" type="submit" value="Logout"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </header>
             <main class="dash-content">
                 <div class="container-fluid">
@@ -31,7 +44,7 @@
                             <div class="spur-card-icon">
                                 <i class="fas fa-table"></i>
                             </div>
-                            <div class="spur-card-title"> All Appointment </div>
+                            <div class="spur-card-title"> All Donors </div>
                         </div>
                         <div class="card-body ">
                             <table class="table table-hover table-in-card">
@@ -42,24 +55,26 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Message</th>
+                                        <th scope="col">Lab Name</th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:if="${appointments.empty}">
-							            <td colspan="2">No Appointment Available</td>
+                                <tr th:if="${donors.empty}">
+							            <td colspan="2">No Donors Available</td>
 							        </tr>
-							        <tr th:each="appointment : ${appointments}">
-							            <td><span th:text="${appointment.id}">id</span></td>
-							            <td><span th:text="${appointment.fullName}">name</span></td>
-							            <td><span th:text="${appointment.email}">email</span></td>
-                                        <td><span th:text="${appointment.date}">date</span></td>
-                                        <td><span th:text="${appointment.message}">message</span></td>
-							            <td><a href="/appointment/edit.html"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
+							        <tr th:each="donor : ${donors}">
+							            <td><span th:text="${donor.id}">id</span></td>
+							            <td><span th:text="${donor.fullName}">name</span></td>
+							            <td><span th:text="${donor.email}">email</span></td>
+                                        <td><span th:text="${donor.date}">date</span></td>
+                                        <td><span th:text="${donor.message}">message</span></td>
+                                        <td><span th:text="${donor.laboratory.labName}">lab name</span></td>
+							            <td><a href="/donor/edit.html"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
 							            <td>
-							            	<form th:object="${appointment}" th:action="@{/admin/appointment}" th:method="delete">
-							            		<input type="hidden" id="appointment" name="appointment" th:value="${appointment.id}">
+							            	<form action="#" th:object="${donor}" th:action="@{/admin/donot}" th:method="delete">
+							            		<input type="hidden" id="donor" name="donor" th:value="${donor.id}">
 							            		<button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
 							            	</form>
 							            </td>
@@ -73,10 +88,10 @@
 	                        <div class="spur-card-icon">
 	                            <i class="fas fa-plus-square"></i>
 	                        </div>
-	                        <div class="spur-card-title"> Add new appointment </div>
+	                        <div class="spur-card-title"> Add new donor </div>
 	                    </div>
 	                    <div class="card-body ">
-	                        <form th:object="${appointment}" th:action="@{/admin/appointment}" method="post">
+	                        <form action="#" th:object="${donor}" th:action="@{/admin/donor}" method="post">
 	                            <div class="form-group row">
 	                                <label for="inputName" class="col-sm-2 col-form-label">Full Name</label>
 	                                <div class="col-sm-10">
@@ -86,13 +101,30 @@
 	                            <div class="form-group row">
 	                                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
 	                                <div class="col-sm-10">
-                                    	<input type="email" class="form-control" id="inputEmail" th:field="*{email}" placeholder="Type an email" required>
+                                    	<input type="email" class="form-control" id="inputEmail" th:field="*{email}" placeholder="Type a email" required>
+                                    </div>
+	                            </div>
+                                <div class="form-group row">
+	                                <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+	                                <div class="col-sm-10">
+                                    	<input type="date" class="form-control" id="inputDate" th:field="*{date}" placeholder="Type a date" required>
                                     </div>
 	                            </div>
                                 <div class="form-group row">
                                     <label for="inputText" class="col-sm-2 col-form-label">Message</label>
                                     <div class="col-sm-10">
                                         <textarea class="form-control" id="inputText" th:field="*{message}" placeholder="Write a message" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="doctor" class="col-sm-2 col-form-label">Lab Name</label>
+                                    <div class="col-sm-10">
+                                        <select th:field="*{laboratory.id}" id="doctor" onchange="onstatechange(this)"
+                                                class="form-control">
+                                            <option disabled selected value="">Select a Lab Name</option>
+                                            <option th:each="laboratory : ${laboratories}" th:value="${laboratory.id}"
+                                                    th:text="${laboratory.labName}"></option>
+                                        </select>
                                     </div>
                                 </div>
 	                            <div class="form-group row">

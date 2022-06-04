@@ -20,7 +20,20 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <h3 style="margin-left: 50px">Laboratory dashboard</h3>
+                <h3 style="margin-left: 50px">Donor dashboard</h3>
+                <div class="tools">
+                    <div class="dropdown tools-item">
+                        <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                            <form th:action="@{/logout}" method="post">
+                                <input class="dropdown-item" type="submit" value="Logout"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </header>
             <main class="dash-content">
                 <div class="container-fluid">
@@ -29,26 +42,32 @@
 	                        <div class="spur-card-icon">
 	                            <i class="fas fa-chart-bar"></i>
 	                        </div>
-	                        <div class="spur-card-title"> Edit laboratory </div>
+	                        <div class="spur-card-title"> Edit donor </div>
 	                    </div>
 	                    <div class="card-body ">
-	                        <form action="#" th:object="${laboratory}" th:action="@{update}" th:method="put">
-	                            <div class="form-group row">
-	                                <label for="inputName" class="col-sm-2 col-form-label">Name Laboratory</label>
-	                                <div class="col-sm-10">
+	                        <form action="#" th:object="${donor}" th:action="@{update}" th:method="put">
+	                        	<div class="form-group row">
+                                    <label for="inputName" class="col-sm-2 col-form-label">Full Name</label>
+                                    <div class="col-sm-10">
                                     	<input type="text" class="form-control" th:field="*{name}">
                                     </div>
-	                            </div>
-	                            <div class="form-group row">
-	                                <label for="inputForename" class="col-sm-2 col-form-label">Address</label>
+                                </div>
+                                <div class="form-group row">
+	                                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
 	                                <div class="col-sm-10">
-                                    	<input type="text" class="form-control" th:field="*{address}">
+                                    	<input type="email" class="form-control" th:field="*{email}">
                                     </div>
 	                            </div>
                                 <div class="form-group row">
-	                                <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
+	                                <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
 	                                <div class="col-sm-10">
-                                    	<input type="tel" class="form-control" th:field="*{phone}" >
+                                    	<input type="date" class="form-control" th:field="*{date}" >
+                                    </div>
+	                            </div>
+                                <div class="form-group row">
+	                                <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
+	                                <div class="col-sm-10">
+                                    	<input type="time" class="form-control" th:field="*{time}" >
                                     </div>
 	                            </div>
                                 <div class="form-group row">
