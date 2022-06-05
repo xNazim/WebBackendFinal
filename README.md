@@ -3,6 +3,8 @@
 # Hospital Management System
 This is a Hospital management system developed for managing purpose in hospital. Application written in Java using Spring Framework,  and PostgreSQL. On the Login page only admin can log in and edit all stuff like he can add doctors, patients and delete them as well. Doctors may also check all the information about patients and they can delete, add patients and can read appointments. Donors can send inform their donation and also can send message to doctors through donation section. Patients can set appointments in main page.
 
+      Login: admin
+      Password: admin
 
 # Technologies
 + front-end : HTML , CSS , JavaScript , Jquery , Bootstrap
@@ -26,3 +28,9 @@ This is a Hospital management system developed for managing purpose in hospital.
 - [Spur Bootstrap Admin Template](https://github.com/HackerThemes/spur-template)
 - [Spring data query creation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation)
 - [Spring MVC Security Java Config](https://docs.spring.io/spring-security/site/docs/current/guides/html5/hellomvc-javaconfig.html)
+# Screenshots
+
+![Capture](https://user-images.githubusercontent.com/73534500/172065140-d59fc4b5-3a97-410a-a28f-db2c301b056a.PNG)
+![Capture1](https://user-images.githubusercontent.com/73534500/172065134-681a86d9-bc08-40c1-b242-137d4bf07892.PNG)
+![Capture3](https://user-images.githubusercontent.com/73534500/172065208-9d74206e-0a77-4b7c-9d58-76d117cc2c9e.PNG)
+![Capture2](https://user-images.githubusercontent.com/73534500/172065139-85a46596-854e-41cc-9ace-07eda0b314f7.PNG)
