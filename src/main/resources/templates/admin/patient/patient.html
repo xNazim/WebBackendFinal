@@ -77,14 +77,13 @@
                                 <td><span th:text="${patient.age}">Age</span></td>
                                 <td><span th:text="${patient.appointment.id}">Appointment</span></td>
                                 <td><span th:text="${patient.doctor.firstName}">Doctor</span></td>
-                                <td><a href="/patient/edit.html">
+                                <td><a th:href="@{/admin/patient/edit/{id}(id=${patient.id})}">
                                     <button type="button" class="btn btn-primary btn-sm mb-1">Edit</button>
                                 </a></td>
                                 <td>
-                                    <form action="#" th:object="${patient}" th:action="@{/admin/patient}"
-                                          th:method="delete">
-                                        <input type="hidden" id="patient" name="patient" th:value="${patient.id}">
-                                        <button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
+                                    <a th:href="@{patient/{id}(id=${patient.id})}">
+                                        <button type="button" class="btn btn-danger btn-sm mb-1">Delete</button>
+                                    </a>
                                     </form>
                                 </td>
                             </tr>

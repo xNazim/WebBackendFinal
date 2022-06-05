@@ -27,7 +27,7 @@ public class Doctor {
     @Column(name = "mobile_number")
     private String mobileNo;
 
-    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.MERGE)
     private List<Patient> patient;
 
 

@@ -15,116 +15,120 @@
 </head>
 
 <body>
-    <div class="dash">
-        <div th:replace="fragments/doctorNav :: nav1"></div>
-        <div class="dash-app">
-            <header class="dash-toolbar">
-                <a href="#!" class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </a>
-                <h3 style="margin-left: 50px">Donor dashboard</h3>
-                <div class="tools">
-                    <div class="dropdown tools-item">
-                        <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">
-                            <i class="fas fa-user"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                            <form th:action="@{/logout}" method="post">
-                                <input class="dropdown-item" type="submit" value="Logout"/>
-                            </form>
-                        </div>
+<div class="dash">
+    <div th:replace="fragments/doctorNav :: nav1"></div>
+    <div class="dash-app">
+        <header class="dash-toolbar">
+            <a href="#!" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </a>
+            <h3 style="margin-left: 50px">Appointment dashboard</h3>
+            <div class="tools">
+                <div class="dropdown tools-item">
+                    <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <form th:action="@{/logout}" method="post">
+                            <input class="dropdown-item" type="submit" value="Logout"/>
+                        </form>
                     </div>
                 </div>
-            </header>
-            <main class="dash-content">
-                <div class="container-fluid">
-                	<div class="card spur-card">
-                        <div class="card-header">
-                            <div class="spur-card-icon">
-                                <i class="fas fa-table"></i>
-                            </div>
-                            <div class="spur-card-title"> All Appointment </div>
+            </div>
+        </header>
+        <main class="dash-content">
+            <div class="container-fluid">
+                <div class="card spur-card">
+                    <div class="card-header">
+                        <div class="spur-card-icon">
+                            <i class="fas fa-table"></i>
                         </div>
-                        <div class="card-body ">
-                            <table class="table table-hover table-in-card">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Full Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Message</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:if="${appointments.empty}">
-							            <td colspan="2">No Appointment Available</td>
-							        </tr>
-							        <tr th:each="appointment : ${appointments}">
-							            <td><span th:text="${appointment.id}">id</span></td>
-							            <td><span th:text="${appointment.fullName}">name</span></td>
-							            <td><span th:text="${appointment.email}">email</span></td>
-                                        <td><span th:text="${appointment.date}">date</span></td>
-                                        <td><span th:text="${appointment.message}">message</span></td>
-							            <td><a href="/doctor/appointment/edit"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
-							            <td>
-							            	<form th:object="${appointment}" th:action="@{/admin/appointment}" th:method="post">
-							            		<input type="hidden" id="appointment" name="appointment" th:value="${appointment.id}">
-							            		<button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
-							            	</form>
-							            </td>
-							        </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <div class="spur-card-title"> All Appointment</div>
                     </div>
-                    <div class="card spur-card">
-	                    <div class="card-header">
-	                        <div class="spur-card-icon">
-	                            <i class="fas fa-plus-square"></i>
-	                        </div>
-	                        <div class="spur-card-title"> Add new appointment </div>
-	                    </div>
-	                    <div class="card-body ">
-	                        <form th:object="${appointment}" th:action="@{/doctor/appointment}" method="post">
-	                            <div class="form-group row">
-	                                <label for="inputName" class="col-sm-2 col-form-label">Full Name</label>
-	                                <div class="col-sm-10">
-                                    	<input type="text" class="form-control" id="inputName" th:field="*{fullName}" placeholder="Type a name" required>
-                                    </div>
-	                            </div>
-	                            <div class="form-group row">
-	                                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-	                                <div class="col-sm-10">
-                                    	<input type="email" class="form-control" id="inputEmail" th:field="*{email}" placeholder="Type an email" required>
-                                    </div>
-	                            </div>
-                                <div class="form-group row">
-                                    <label for="inputText" class="col-sm-2 col-form-label">Message</label>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" id="inputText" th:field="*{message}" placeholder="Write a message" required></textarea>
-                                    </div>
+                    <div class="card-body ">
+                        <table class="table table-hover table-in-card">
+                            <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Message</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:if="${appointments.empty}">
+                                <td colspan="2">No Appointment Available</td>
+                            </tr>
+                            <tr th:each="appointment : ${appointments}">
+                                <td><span th:text="${appointment.id}">id</span></td>
+                                <td><span th:text="${appointment.fullName}">name</span></td>
+                                <td><span th:text="${appointment.email}">email</span></td>
+                                <td><span th:text="${appointment.date}">date</span></td>
+                                <td><span th:text="${appointment.message}">message</span></td>
+                                <td><a th:href="@{/doctor/appointment/edit/{id}(id=${appointment.id})}">
+                                    <button type="button" class="btn btn-primary btn-sm mb-1">Edit</button>
+                                </a></td>
+                                <td>
+                                    <a th:href="@{appointment/{id}(id=${appointment.id})}">
+                                    <button type="button" class="btn btn-danger btn-sm mb-1">Delete</button>
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card spur-card">
+                    <div class="card-header">
+                        <div class="spur-card-icon">
+                            <i class="fas fa-plus-square"></i>
+                        </div>
+                        <div class="spur-card-title"> Add new appointment</div>
+                    </div>
+                    <div class="card-body ">
+                        <form th:object="${appointment}" th:action="@{/doctor/appointment}" method="post">
+                            <div class="form-group row">
+                                <label for="inputName" class="col-sm-2 col-form-label">Full Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputName" th:field="*{fullName}"
+                                           placeholder="Type a name" required>
                                 </div>
-	                            <div class="form-group row">
-	                                <div class="col-sm-10">
-	                                    <button type="submit" class="btn btn-primary">Submit</button>
-	                           			<button type="reset" class="btn btn-primary">Reset</button>
-	                                </div>
-	                            </div>
-	                        </form>
-	                    </div>
-	                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputEmail" th:field="*{email}"
+                                           placeholder="Type an email" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputText" class="col-sm-2 col-form-label">Message</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="inputText" th:field="*{message}"
+                                              placeholder="Write a message" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="reset" class="btn btn-primary">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </main>
-        </div>
+            </div>
+        </main>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="/js/spur.js"></script>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="/js/spur.js"></script>
 </body>
 
 </html>

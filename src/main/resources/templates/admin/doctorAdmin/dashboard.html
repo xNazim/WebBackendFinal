@@ -70,12 +70,11 @@
                                         <td><span th:text="${doctor.specialty}">Specialty</span></td>
                                         <td><span th:text="${doctor.address}">Address</span></td>
 							            <td><span th:text="${doctor.mobileNo}">Phone</span></td>
-							            <td><a href="/doctor/edit.html"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
+							            <td><a th:href="@{/admin/doctor/edit/{id}(id=${doctor.id})}"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
 							            <td>
-							            	<form action="#" th:object="${doctor}" th:action="@{/templates/admin/doctorAdmin}" th:method="delete">
-							            		<input type="hidden" id="doctor" name="teacher" th:value="${doctor.id}">
-							            		<button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
-							            	</form>
+                                            <a th:href="@{doctor/{id}(id=${doctor.id})}">
+                                                <button type="button" class="btn btn-danger btn-sm mb-1">Delete</button>
+                                            </a>
 							            </td>
 							        </tr>
                                 </tbody>
@@ -90,7 +89,7 @@
 	                        <div class="spur-card-title"> Add new doctor </div>
 	                    </div>
 	                    <div class="card-body ">
-	                        <form th:action="@{/templates/admin/doctorAdmin/}" th:object="${doctor}" method="post">
+	                        <form th:action="@{/admin/doctor/}" th:object="${doctor}" method="post">
 	                            <div class="form-group row">
 	                                <label for="inputName" class="col-sm-2 col-form-label">Name</label>
 	                                <div class="col-sm-10">

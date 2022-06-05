@@ -188,32 +188,18 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form  method="POST">
+                <form th:object="${appointment}" th:action="@{/}" method="post">
                     <div class="form-group">
                         <label for="appointment_name" class="text-black">Full Name</label>
-                        <input type="text" field="" class="form-control" id="appointment_name">
+                        <input type="text" th:field="*{fullName}" class="form-control" id="appointment_name">
                     </div>
                     <div class="form-group">
                         <label for="appointment_email" class="text-black">Email</label>
-                        <input type="email" field="" class="form-control" id="appointment_email">
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="appointment_date" class="text-black">Date</label>
-                                <input type="date" field="" class="form-control" id="appointment_date">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="appointment_time" class="text-black">Time</label>
-                                <input type="time" field="" class="form-control" id="appointment_time">
-                            </div>
-                        </div>
+                        <input type="email" th:field="*{email}" class="form-control" id="appointment_email">
                     </div>
                     <div class="form-group">
                         <label for="appointment_message" class="text-black">Message</label>
-                        <textarea field="" id="appointment_message" class="form-control" cols="30" rows="10"></textarea>
+                        <textarea id="appointment_message" class="form-control" th:field="*{message}" cols="30" rows="10"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Send Message" class="btn btn-primary">
@@ -234,32 +220,18 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form  method="POST">
+                <form th:object="${donor}" th:action="@{/#}"  method="post">
                     <div class="form-group">
                         <label for="donation_name" class="text-black">Full Name</label>
-                        <input type="text" field="" class="form-control" id="donation_name">
+                        <input type="text" th:field="*{fullName}" class="form-control" id="donation_name">
                     </div>
                     <div class="form-group">
                         <label for="donation_email" class="text-black">Email</label>
-                        <input type="email" field="" class="form-control" id="donation_email">
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="donation_date" class="text-black">Date</label>
-                                <input type="date" field="" class="form-control" id="donation_date">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="donation_time" class="text-black">Time</label>
-                                <input type="time" field="" class="form-control" id="donation_time">
-                            </div>
-                        </div>
+                        <input type="email" th:field="*{email}" class="form-control" id="donation_email">
                     </div>
                     <div class="form-group">
                         <label for="donation_message" class="text-black">Message</label>
-                        <textarea field="" id="donation_message" class="form-control" cols="30" rows="10"></textarea>
+                        <textarea th:field="*{message}" id="donation_message" class="form-control" cols="30" rows="10"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Send Message" class="btn btn-primary">

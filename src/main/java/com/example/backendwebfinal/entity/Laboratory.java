@@ -15,9 +15,6 @@ public class Laboratory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
-    private User user;
 
     @Column(name = "lab_name")
     private String labName;
@@ -34,8 +31,7 @@ public class Laboratory {
     public Laboratory() {
     }
 
-    public Laboratory(User user, String labName, String address, int phoneNo, List<Donor> donor) {
-        this.user = user;
+    public Laboratory(String labName, String address, int phoneNo, List<Donor> donor) {
         this.labName = labName;
         this.address = address;
         this.phoneNo = phoneNo;

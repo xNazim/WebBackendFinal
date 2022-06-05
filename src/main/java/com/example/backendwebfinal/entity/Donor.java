@@ -2,6 +2,7 @@ package com.example.backendwebfinal.entity;
 
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -24,8 +25,8 @@ public class Donor {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "date")
-    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    @Column(nullable = false)
     private Date date;
 
     @Column(name = "message")

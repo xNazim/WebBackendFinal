@@ -33,8 +33,9 @@ public class Appointment {
     @Column(name = "message")
     private String message;
 
-    @OneToOne(mappedBy = "appointment", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "appointment")
     private Patient patient;
+
 
     public Appointment() {
     }
@@ -44,19 +45,6 @@ public class Appointment {
         this.email = email;
         this.date = date;
         this.message = message;
-        this.patient = patient;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Appointment that = (Appointment) o;
-        return id != null && Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

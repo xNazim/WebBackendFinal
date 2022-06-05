@@ -36,6 +36,7 @@ public class Patient {
     private int age;
 
     @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "app_id", referencedColumnName = "id")
     private Appointment appointment;
 
     @NotNull

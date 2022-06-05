@@ -53,7 +53,7 @@
                                         <th scope="col">Id</th>
                                         <th scope="col">Name Laboratory</th>
                                         <th scope="col">Address</th>
-                                        <th scope="col">Phone</th>
+                                        <th scope="col">NursePhone</th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                     </tr>
@@ -66,13 +66,14 @@
 							            <td><span th:text="${laboratory.id}">id</span></td>
 							            <td><span th:text="${laboratory.labName}">name laboratory</span></td>
                                         <td><span th:text="${laboratory.address}">Address</span></td>
-							            <td><span th:text="${laboratory.phoneNo}">Phone</span></td>
-							            <td><a href="doctor/laboratory/edit"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
+							            <td><span th:text="${laboratory.phoneNo}">NursePhone</span></td>
+							            <td><a th:href="@{/doctor/laboratory/edit/{id}(id=${laboratory.id})}">
+                                            <button type="button" class="btn btn-primary btn-sm mb-1">Edit</button>
+                                        </a></td>
 							            <td>
-							            	<form action="#" th:object="${laboratory}" th:action="@{/admin/laboratory}" th:method="delete">
-							            		<input type="hidden" id="laboratory" name="laboratory" th:value="${laboratory.id}">
-							            		<button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
-							            	</form>
+                                            <a th:href="@{laboratory/{id}(id=${laboratory.id})}">
+                                                <button type="button" class="btn btn-danger btn-sm mb-1">Delete</button>
+                                            </a>
 							            </td>
 							        </tr>
                                 </tbody>
@@ -106,17 +107,6 @@
                                     	<input type="tel" class="form-control" id="inputPhone" th:field="*{phoneNo}" placeholder="Type a phone" required>
                                     </div>
 	                            </div>
-                                <div class="form-group row">
-                                    <label for="app" class="col-sm-2 col-form-label">Appointment Id</label>
-                                    <div class="col-sm-10">
-                                        <select th:field="*{user.id}" id="app" onchange="onstatechange(this)"
-                                                class="form-control">
-                                            <option disabled selected value="">Select User id</option>
-                                            <option th:each="user : ${users}" th:value="${user.id}"
-                                                    th:text="${user.firstName}"></option>
-                                        </select>
-                                    </div>
-                                </div>
 	                            <div class="form-group row">
 	                                <div class="col-sm-10">
 	                                    <button type="submit" class="btn btn-primary">Submit</button>

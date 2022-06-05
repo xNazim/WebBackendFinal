@@ -22,7 +22,7 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <h3 style="margin-left: 50px">Donor dashboard</h3>
+                <h3 style="margin-left: 50px">Appointment dashboard</h3>
                 <div class="tools">
                     <div class="dropdown tools-item">
                         <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
@@ -69,12 +69,11 @@
 							            <td><span th:text="${appointment.email}">email</span></td>
                                         <td><span th:text="${appointment.date}">date</span></td>
                                         <td><span th:text="${appointment.message}">message</span></td>
-							            <td><a href="/appointment/edit.html"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
+							            <td><a th:href="@{/admin/appointment/edit/{id}(id=${appointment.id})}"><button type="button" class="btn btn-primary btn-sm mb-1">Edit</button></a></td>
 							            <td>
-							            	<form th:object="${appointment}" th:action="@{/admin/appointment}" th:method="delete">
-							            		<input type="hidden" id="appointment" name="appointment" th:value="${appointment.id}">
-							            		<button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
-							            	</form>
+                                            <a th:href="@{appointment/{id}(id=${appointment.id})}">
+                                                <button type="button" class="btn btn-danger btn-sm mb-1">Delete</button>
+                                            </a>
 							            </td>
 							        </tr>
                                 </tbody>

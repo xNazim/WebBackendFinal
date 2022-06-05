@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/spur.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
@@ -13,79 +15,84 @@
 </head>
 
 <body>
-    <div class="dash">
-        <div th:replace="fragments/nav :: nav"></div>
-        <div class="dash-app">
-            <header class="dash-toolbar">
-                <a href="#!" class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </a>
-                <h3 style="margin-left: 50px">Donor dashboard</h3>
-                <div class="tools">
-                    <div class="dropdown tools-item">
-                        <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">
-                            <i class="fas fa-user"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                            <form th:action="@{/logout}" method="post">
-                                <input class="dropdown-item" type="submit" value="Logout"/>
-                            </form>
-                        </div>
+<div class="dash">
+    <div th:replace="fragments/nav :: nav"></div>
+    <div class="dash-app">
+        <header class="dash-toolbar">
+            <a href="#!" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </a>
+            <h3 style="margin-left: 50px">Donor dashboard</h3>
+            <div class="tools">
+                <div class="dropdown tools-item">
+                    <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <form th:action="@{/logout}" method="post">
+                            <input class="dropdown-item" type="submit" value="Logout"/>
+                        </form>
                     </div>
                 </div>
-            </header>
-            <main class="dash-content">
-                <div class="container-fluid">
-                    <div class="card spur-card">
-	                    <div class="card-header">
-	                        <div class="spur-card-icon">
-	                            <i class="fas fa-chart-bar"></i>
-	                        </div>
-	                        <div class="spur-card-title"> Edit donor </div>
-	                    </div>
-	                    <div class="card-body ">
-	                        <form action="#" th:object="${donor}" th:action="@{update}" th:method="put">
-	                        	<div class="form-group row">
-                                    <label for="inputName" class="col-sm-2 col-form-label">Full Name</label>
-                                    <div class="col-sm-10">
-                                    	<input type="text" class="form-control" th:field="*{name}">
-                                    </div>
+            </div>
+        </header>
+        <main class="dash-content">
+            <div class="container-fluid">
+                <div class="card spur-card">
+                    <div class="card-header">
+                        <div class="spur-card-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="spur-card-title"> Edit donor </div>
+                    </div>
+                    <div class="card-body ">
+                        <form action="#" th:object="${donor}" th:action="@{/admin/donor/edit/{id}(id=${donor.id})}" th:method="post">
+                            <div class="form-group row">
+                                <label for="inputName" class="col-sm-2 col-form-label">Full Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputName" th:field="*{fullName}" placeholder="Type a name" required>
                                 </div>
-                                <div class="form-group row">
-	                                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-	                                <div class="col-sm-10">
-                                    	<input type="email" class="form-control" th:field="*{email}">
-                                    </div>
-	                            </div>
-                                <div class="form-group row">
-	                                <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
-	                                <div class="col-sm-10">
-                                    	<input type="date" class="form-control" th:field="*{date}" >
-                                    </div>
-	                            </div>
-                                <div class="form-group row">
-	                                <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
-	                                <div class="col-sm-10">
-                                    	<input type="time" class="form-control" th:field="*{time}" >
-                                    </div>
-	                            </div>
-                                <div class="form-group row">
-	                                <div class="col-sm-10">
-	                                    <button type="submit" class="btn btn-primary">Submit</button>
-	                                </div>
-	                            </div>
-	                        </form>
-	                    </div>
-	                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputEmail" th:field="*{email}" placeholder="Type a email" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputText" class="col-sm-2 col-form-label">Message</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="inputText" th:field="*{message}" placeholder="Write a message" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="doctor" class="col-sm-2 col-form-label">Lab Name</label>
+                                <div class="col-sm-10">
+                                    <select th:field="*{laboratory.id}" id="doctor" onchange="onstatechange(this)"
+                                            class="form-control">
+                                        <option disabled selected value="">Select a Lab Name</option>
+                                        <option th:each="laboratory : ${laboratories}" th:value="${laboratory.id}"
+                                                th:text="${laboratory.labName}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </main>
-        </div>
+            </div>
+        </main>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="/js/spur.js"></script>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="/js/spur.js"></script>
 </body>
 
 </html>
