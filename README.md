@@ -30,7 +30,7 @@ This is a Hospital management system developed for managing purpose in hospital.
 - [Spring MVC Security Java Config](https://docs.spring.io/spring-security/site/docs/current/guides/html5/hellomvc-javaconfig.html)
 # Screenshots
 
-![Capture](https://user-images.githubusercontent.com/73534500/172065140-d59fc4b5-3a97-410a-a28f-db2c301b056a.PNG)
+![Capture4](https://user-images.githubusercontent.com/73534500/172129751-e296c444-7539-431c-aabf-5864c5ed50b9.PNG)
 ![Capture1](https://user-images.githubusercontent.com/73534500/172065134-681a86d9-bc08-40c1-b242-137d4bf07892.PNG)
 ![Capture3](https://user-images.githubusercontent.com/73534500/172065208-9d74206e-0a77-4b7c-9d58-76d117cc2c9e.PNG)
 ![Capture2](https://user-images.githubusercontent.com/73534500/172065139-85a46596-854e-41cc-9ace-07eda0b314f7.PNG)
