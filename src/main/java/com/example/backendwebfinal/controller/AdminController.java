@@ -137,6 +137,12 @@ public class AdminController {
         return "redirect:/admin/laboratory";
     }
 
+    @GetMapping("/doctor/{id}")
+    public String deleteDoctor(@PathVariable Integer id){
+        doctorService.deleteDoctorById(id);
+        return "redirect:/admin/doctor";
+    }
+
 
     @PostMapping("/doctor")
     public String createDoctor(@ModelAttribute Doctor doctor) {
